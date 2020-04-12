@@ -1,7 +1,8 @@
 # Code_It_Out
 Solutions of practice problems of different platforms for beginner 
 
-DEAR READER,
+DEAR READER,  
+
               If you are reading this then you're at the right place .
               Go on and have a look to various types of problems along with solutions to master competitive coding ...
               Follow me on :
