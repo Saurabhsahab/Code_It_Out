@@ -19,5 +19,4 @@ int main(){
         else{
             cout<<(2*k)-1;
         }
-    
-}
+    }
