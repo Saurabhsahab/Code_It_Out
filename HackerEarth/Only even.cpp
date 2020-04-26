@@ -17,7 +17,7 @@ int main(){
     ll n,s=0,p=1;
     cin>>n;
     ll a[n];
-     f(i,0,n){
+    f(i,0,n){
         cin>>a[i];
         if(a[i]%2==0){
         s=s+(p*(n-i));
