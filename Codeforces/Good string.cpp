@@ -13,20 +13,31 @@ using namespace std ;
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(0);
-    ll n;
+    ll n,p=0;
     cin>>n;
     string s;
     cin>>s;
-    string s1;
-    f(i,0,n){
-        ll k=s1.length();
-        if(k%2==0||s1[k-1]!=s[i])
-        s1.pb(s[i]);
+    for(ll i=0;i<n-1;i=i+2){
+        if(s[i]==s[i+1]){
+            s.erase(i+1,1);
+            i=i-2;
+            p++;
+            n=s.length();
+        }
     }
-    ll k=s1.length();
-    if(k%2==1){
-    s1.erase(k-1);
-    k=k-1;
+    ll k=s.length();
+    if(k%2==0){
+        cout<<p<<"\n";
+        cout<<s;
     }
-    cout<<n-k<<"\n"<<s1<<"\n";
+    else{
+        if(k!=1){
+            cout<<p+1<<"\n";
+            s.erase(k-1,1);
+            cout<<s;
+        }
+        else{
+            cout<<p+1<<"\n";
+        }
+    }
 }
