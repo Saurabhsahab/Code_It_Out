@@ -8,8 +8,9 @@ DEAR READER,
               Click on the links provided for question statement and refer the solution code inside ...
              
              Follow me on :
-                             Hackerearth --> https://www.hackerearth.com/@saurabh2760
+                             HackerEarth --> https://www.hackerearth.com/@saurabh2760
                              Codeforces --> https://codeforces.com/profile/Saurabh_19
+                             CodeChef --> https://www.codechef.com/users/lordsaurabh_19
               Regards
               
              OWNER
