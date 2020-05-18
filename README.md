@@ -4,7 +4,8 @@ Solutions of practice problems of different platforms for beginner
 DEAR READER,  
 
               If you are reading this then you're at the right place .
-              Go on and have a look to various types of problems along with solutions to master competitive coding ...
+               A code template is also provided for giving head start to you  
+              Go on and have a look to various types of problems along with solutions to master competitive coding...
               Click on the links provided for question statement and refer the solution code inside ...
              
              Follow me on :
