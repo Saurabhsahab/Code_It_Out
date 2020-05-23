@@ -36,6 +36,14 @@ void sieve(){
     }
 }
 
+bool isprime(ll n)
+{   if(n<1000010)
+     return a[n];
+    for (ll i=2;i*i<=n;++i)
+    if(n%i == 0)
+    return 0;
+    return 1;
+}
 
 int main(){
     ios_base::sync_with_stdio(false);
@@ -70,7 +78,7 @@ int main(){
           }
           p=0;
           m=n;
-          if(a[q]&&n%q==0){
+          if(isprime(q)&&n%q==0){
               s++;
                while(m%q==0){
                 p++; 
