@@ -46,5 +46,4 @@ int main(){
      s=(s*a[i])%mod;
     }
     cout<<BE(s,m,mod);
-    
 }
