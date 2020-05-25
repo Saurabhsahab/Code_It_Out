@@ -39,5 +39,5 @@ int main(){
            s=s|(1<<i);
        }
     }
-    cout<<n<<" "<<s;
+     cout<<n<<" "<<s;
 }
