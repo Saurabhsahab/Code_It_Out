@@ -53,6 +53,6 @@ int main(){
        y=y+2;
        x=x-2;
        s3=(a*x*x)+(b*y*y);
-       cout<<min({s1,s2,s3})<<"\n";
+       cout<<min({s1,s2,s3}) <<"\n";
     }
 }
