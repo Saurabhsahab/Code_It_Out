@@ -40,6 +40,6 @@ int main(){
                 p=p/2;
             }
         }
-        cout<<s<<"\n";
+         cout<<s<<"\n";
     }
 }
