@@ -15,8 +15,8 @@
 
 
 
-#### :alien: **Words of advice** :alien:
-- Plagiarism must be strictly avoided.:mask:
+#### :alien: **Words of advice**
+- Plagiarism must be strictly avoided, breaking copyrights is a punishable offence.:mask:
 - The codes provided in this repositery are only for reference and for better understanding any corresponding concept or logic.
 - Submitting work that isn’t your own always results permanent failure of understanding concept.:imp:
 
@@ -27,5 +27,5 @@
 
 
 
-####                    :sunglasses:  Owner
-####                      :name_badge: **SAURABH UPADHAYAY** :name_badge:
+####                     :name_badge:Owner
+####                      :sunglasses:**SAURABH UPADHAYAY**:sunglasses:
