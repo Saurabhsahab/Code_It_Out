@@ -1,13 +1,13 @@
 #### Code_It_Out
 
-#### **Inside repository**
+#### :memo:**Inside repository**
 - This repository provides you the simple code solutions of different practice problems of different coding platforms.
 - A code template is also provided for giving head start to you.
 - A number of problems are provided in hackerearth folder and codeforces folder frequently and for more problems you can see my           hackerearth account...:wink:
 
 
 
- ####  Follow me on
+ #### :raised_hands:	 Follow me on
  
  ####                            **HackerEarth** --> https://www.hackerearth.com/@stylebender
  ####                            **Codeforces** --> https://codeforces.com/profile/Saurabh_19
@@ -22,10 +22,10 @@
 
 
 
-#### **Programming Language**
+#### :zap:**Programming Language**
 - C++17
 
 
 
-####                      Owner:sunglasses:
+####                    :sunglasses:  Owner
 ####                      :name_badge: **SAURABH UPADHAYAY** :name_badge:
