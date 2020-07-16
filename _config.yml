@@ -1,0 +1,8 @@
+title: Code it out
+description: "Solutions of practice problems of different platforms for beginner "
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-minimal
+
+gems:
+  - jekyll-mentions
