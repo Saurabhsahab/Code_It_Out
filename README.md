@@ -30,18 +30,3 @@
 ####                     :name_badge:Owner
 ####                      :sunglasses:**SAURABH UPADHAYAY**:sunglasses:
 
-
-
-# CONTENTS
-
--[Basic problems](https://github.com/Saurabhsahab/Code_It_Out/tree/master/Basic%20problems)
-
--[CodeChef](https://github.com/Saurabhsahab/Code_It_Out/tree/master/CodeChef)
-
--[Codeforces](https://github.com/Saurabhsahab/Code_It_Out/tree/master/Codeforces)
-
--[HackerEarth](https://github.com/Saurabhsahab/Code_It_Out/tree/master/HackerEarth)
-
--[HackerRank](https://github.com/Saurabhsahab/Code_It_Out/tree/master/HackerRank)
-
--[Spoj](https://github.com/Saurabhsahab/Code_It_Out/tree/master/Spoj)
