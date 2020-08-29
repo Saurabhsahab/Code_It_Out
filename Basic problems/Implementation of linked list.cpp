@@ -154,6 +154,21 @@ void dnb(){
     }
 }
 
+void rd(ll x){
+    node *p,*q;
+    p=root;
+    f(i,1,x){
+    q=p;
+    p=p->b;
+    }
+    if(p==NULL)
+    cout<<"NOT POSSIBLE\n";
+    else{
+        q->b=p->b;
+        free(p);
+    }
+}
+
 int main(){
     
 /*	freopen("input.txt", "r" , stdin);
@@ -172,6 +187,14 @@ int main(){
     dnb();
     dnb();
     dnb();
+    pl();
+    inb();
+    inb();
+    inb();
+    inb();
+    inb();
+    inb();
+    rd(3);
     pl();
     
 }
