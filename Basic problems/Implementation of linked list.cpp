@@ -72,7 +72,7 @@ node* cn(){
     
 }
 
-void in(){
+void inb(){
     node *x;
     x=cn();
     
@@ -91,7 +91,7 @@ void in(){
     }
 }
 
-void dn(){
+void dns(){
     node *r;
     if(root==NULL)
     cout<<"EMPTY\n";
@@ -113,6 +113,44 @@ void pl(){
             cout<<t->a<<" ";
             t=t->b;
         }
+        cout<<t->a;
+        cout<<"\n";
+    }
+}
+
+void ins(){
+    node *t;
+    t=cn();
+    cin>>t->a;
+    
+    if(root==NULL)
+    root=t;
+    else{
+        node *x;
+        x=root;
+        root=t;
+        root->b=x;
+    }
+}
+
+void dnb(){
+    node *x,*y;
+    if(root==NULL)
+    cout<<"EMPTY\n";
+    
+    if(root->b==NULL){
+        root=NULL;
+        free(root);
+    }
+    else{
+        x=root;
+        while(x->b!=NULL){
+            y=x;
+           x=x->b;
+        
+        }
+        y->b=NULL;
+        free(x);
     }
 }
 
@@ -124,10 +162,16 @@ int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(0);
     
-    in();
-    in();
-    in();
+    inb();
+    inb();
+    inb();
+    ins();
     pl();
-    
+    dns();
+    pl();
+    dnb();
+    dnb();
+    dnb();
+    pl();
     
 }
