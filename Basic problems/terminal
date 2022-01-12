@@ -1,0 +1,596 @@
+/*  
+    Name : SAURABH UPADHAYAY
+*/
+
+
+#include<bits/stdc++.h>
+#define ll long long 
+using namespace std;
+
+
+// Breadth First search
+
+void bfs(){
+    ll n,m;
+    cout<<"\nPlease enter number of nodes followed by number of edges in a graph : ";
+    cin>>n>>m;
+    cout<<"Please enter edges in a graph : ";
+    vector<vector<ll>> a(n+1);
+
+    ll x,y;
+
+    for(ll i=0;i<m;i++){
+        cin>>x>>y;
+        a[x].push_back(y);
+        a[y].push_back(x);
+    }
+
+    start :
+
+    vector<ll> ans;
+
+    vector<bool> v(n+1,1);
+    queue<ll> q;
+
+
+    while(1){
+        cout<<"Select node to start or -1 to exit : ";
+        cin>>x;
+
+        if(x==-1)
+            break;
+
+        q.push(x);
+        v[x]=0;
+
+
+
+        while(!q.empty()){
+            x=q.front();
+            q.pop();
+            ans.push_back(x);
+
+            for(ll i=0;i<a[x].size();i++){
+                if(v[a[x][i]]){
+                    v[a[x][i]]=0;
+                    q.push(a[x][i]);
+                }
+            }
+        }
+
+        cout<<"The BFS Traversal for selected node is -> ";
+        for(ll i=0;i<ans.size();i++)
+            cout<<ans[i]<<" ";
+
+        cout<<"\n";
+
+        goto start;
+    }
+
+}
+
+// Binary Search
+
+ll binarySearch(vector<ll> a,ll l,ll r,ll x){
+    while(l<=r){
+        ll m=l+(r-l)/2;
+  
+        if (a[m] == x) 
+            return m;  
+  
+        if (a[m] < x) 
+            l = m + 1; 
+  
+        else 
+            r = m - 1; 
+    }
+  
+    return -1; 
+}
+
+void bs(){
+    ll n;
+    cout<<"\nPlease enter size of array : ";
+    cin>>n;
+    vector<ll> a(n);
+    cout<<"Please enter array : ";
+    for(ll i=0;i<n;i++)
+        cin>>a[i];
+
+    sort(a.begin(),a.end());
+
+    while(1){
+        cout<<"Please Enter value to be searched or -1 to exit : ";
+        ll x;
+        cin>>x;
+
+        if(x==-1)
+            break;
+
+        ll k=binarySearch(a,0,n-1,x);
+
+        if(k==-1)
+            cout<<"Value not found\n";
+        else
+            cout<<"Value found at index "<<k<<"\n";
+    }
+
+}
+
+//Count Sort
+
+void cs(){
+
+    ll n;
+    cout<<"\nPlease enter size of array : ";
+    cin>>n;
+    vector<ll> a(n),b(1000001,0),c(1000001);
+    cout<<"Please enter array : ";
+    for(ll i=0;i<n;i++){
+        cin>>a[i];
+        b[a[i]]++;
+    }
+
+    for(ll i=1;i<=1000000;i++)
+        b[i]+=b[i-1];
+    for(ll i=n-1;i>=0;i--){
+        c[b[a[i]]-1]=a[i];
+        b[a[i]]--;
+    }
+
+    for(ll i=0;i<n;i++)
+        a[i]=c[i];
+
+    cout<<"Sorted array is : ";
+    for(ll i=0;i<a.size();i++)
+        cout<<a[i]<<" ";
+
+    cout<<"\n";
+
+
+}
+
+// Depth First search
+
+void dfs(){
+    ll n,m;
+    cout<<"\nPlease enter number of nodes followed by number of edges in a graph : ";
+    cin>>n>>m;
+    cout<<"Please enter edges in a graph : ";
+    vector<vector<ll>> a(n+1);
+
+    ll x,y;
+
+    for(ll i=0;i<m;i++){
+        cin>>x>>y;
+        a[x].push_back(y);
+        a[y].push_back(x);
+    }
+
+    start :
+
+    vector<ll> ans;
+
+    vector<bool> v(n+1,1);
+    stack<ll> q;
+
+
+    while(1){
+        cout<<"Select node to start or -1 to exit : ";
+        cin>>x;
+
+        if(x==-1)
+            break;
+
+        q.push(x);
+        v[x]=0;
+
+
+
+        while(!q.empty()){
+            x=q.top();
+            q.pop();
+            ans.push_back(x);
+
+            for(ll i=0;i<a[x].size();i++){
+                if(v[a[x][i]]){
+                    v[a[x][i]]=0;
+                    q.push(a[x][i]);
+                }
+            }
+        }
+
+        cout<<"The DFS Traversal for selected node is -> ";
+        for(ll i=0;i<ans.size();i++)
+            cout<<ans[i]<<" ";
+
+        cout<<"\n";
+
+        goto start;
+    }
+
+}
+
+// Heap Sort 
+
+void Heapify(vector<ll> &a,ll n,ll x){
+    ll l=2*x+1;
+    ll r=2*x+2;
+    ll ma=x;
+    if(l<n && a[l]>=a[ma])
+        ma=l;
+    if(r<n && a[r]>=a[ma])
+        ma=r;
+    if(ma!=x){
+        swap(a[ma],a[x]);
+        Heapify(a,n,ma);
+    }
+
+
+}
+
+void Heap_sort(vector<ll> &a,ll n){
+    for(ll i=(n/2)-1;i>=0;i--)
+        Heapify(a,n,i);
+
+    for(ll i=n-1;i>=0;i--){
+        swap(a[0],a[i]);
+        Heapify(a,i,0);
+    }
+}
+
+void hs(){
+    ll n;
+    cout<<"\nPlease enter size of array : ";
+    cin>>n;
+    vector<ll> a(n);
+    cout<<"Please enter array : ";
+    for(ll i=0;i<n;i++)
+        cin>>a[i];
+
+    Heap_sort(a,n);
+
+    cout<<"Sorted array is : ";
+    for(ll i=0;i<a.size();i++)
+        cout<<a[i]<<" ";
+
+    cout<<"\n";
+
+}
+
+
+//Insertion Sort
+
+void Is(){
+    ll n;
+    cout<<"\nPlease enter size of array : ";
+    cin>>n;
+    vector<ll> a(n);
+    cout<<"Please enter array : ";
+    for(ll i=0;i<n;i++)
+        cin>>a[i];
+
+    for(ll i=1;i<n;i++){
+        ll x=a[i],j=i-1;
+        while(j>=0 && a[j]>x){
+            swap(a[j],a[j+1]);
+            j--;
+        }
+    }
+
+    cout<<"Sorted array is : ";
+    for(ll i=0;i<a.size();i++)
+        cout<<a[i]<<" ";
+
+    cout<<"\n";
+}
+
+
+// LCS
+
+void lcs(){
+    string s,p;
+    cout<<"Enter 1st String"<<endl;
+    cin>>s;
+    cout<<"Enter 2nd String"<<endl;
+    cin>>p;
+    ll n=s.size(),m=p.size();
+    ll dp[n+1][m+1]={0};
+    for(ll i=0;i<m;i++)
+        dp[0][i]=0;
+    for(ll i=0;i<n;i++)
+        dp[i][0]=0;
+    for(ll i=0;i<=n;i++){
+        for(ll j=0;j<=m;j++){
+            if(i==0|| j==0) 
+                dp[i][j]=0;
+            else if(s[i-1]==p[j-1]) 
+                dp[i][j]=dp[i-1][j-1]+1;
+            else 
+                dp[i][j]=max(dp[i-1][j],dp[i][j-1]);
+        }
+    }
+
+    cout<<"Lenght of the longest common subsequence in given strings is : "<<dp[n][m]<<endl;
+}
+
+
+// Merge Sort 
+
+void Merge(vector<ll> &a,ll l,ll m, ll r){
+   ll n1=m-l+1;
+   ll n2=r-m;
+   ll A[n1+1]={0},B[n2+1]={0};
+   for(ll i=0;i<n1;i++)
+        A[i]=a[i+l]; 
+   for(ll i=0;i<n2;i++) 
+        B[i]=a[i+(m+1)];
+
+   ll i=0,j=0,k=l;
+   while(i<n1 && j<n2){
+       if(A[i]<=B[j])  {
+           a[k]=A[i];
+           k++;
+           i++;
+       }  
+       else {
+           a[k]=B[j];
+           k++;
+           j++;
+       }
+   }
+   while(i<n1) {
+       a[k]=A[i];
+       i++,k++;
+   } 
+   while(j<n2) {
+       a[k]=B[j];
+       i++,k++;
+   } 
+}
+
+void Merge_sort(vector<ll> &a,ll l, ll r){
+    if(l<r){
+        ll m=l+(r-l)/2;
+        Merge_sort(a,l,m);
+        Merge_sort(a,m+1,r);
+        Merge(a,l,m,r);
+    }
+}
+
+void ms(){
+    ll n;
+    cout<<"\nPlease enter size of array : ";
+    cin>>n;
+    vector<ll> a(n);
+    cout<<"Please enter array : ";
+    for(ll i=0;i<n;i++)
+        cin>>a[i];
+
+    Merge_sort(a,0,n);
+
+    cout<<"Sorted array is : ";
+    for(ll i=0;i<a.size();i++)
+        cout<<a[i]<<" "; 
+
+    cout<<"\n";
+}
+
+// Quick Sort 
+
+ll Partition(vector<ll> &a,ll l, ll r){
+    ll x=a[r];
+    ll i=l-1;
+    for(ll j=l;j<r;j++){
+        if(a[j]<=x){
+            i++;
+            swap(a[i],a[j]);
+        }
+    }
+    swap(a[i+1],a[r]);
+    return i+1;
+
+}
+
+void Quick_sort(vector<ll> &a,ll l, ll r){
+    if(l<r){
+    ll q=Partition(a,l,r);
+    Quick_sort(a,0,q-1);
+    Quick_sort(a,q+1,r);
+    }
+}
+
+void qs(){
+    ll n;
+    cout<<"\nPlease enter size of array : ";
+    cin>>n;
+    vector<ll> a(n);
+    cout<<"Please enter array : ";
+    for(ll i=0;i<n;i++)
+        cin>>a[i];
+
+    Quick_sort(a,0,n);
+
+    cout<<"Sorted array is : ";
+    for(ll i=0;i<a.size();i++)
+        cout<<a[i]<<" "; 
+
+    cout<<"\n";
+}
+
+
+
+// Selection Sort
+
+void ss(){
+    ll n;
+    cout<<"\nPlease enter size of array : ";
+    cin>>n;
+    vector<ll> a(n);
+    cout<<"Please enter array : ";
+    for(ll i=0;i<n;i++)
+        cin>>a[i];
+
+   for(ll i=0;i<n;i++){
+       ll mi=10000000000,index=-1;
+        for(ll j=i;j<n;j++){
+             if(mi>a[j]){
+                 mi=a[j];
+                 index=j;
+             }  
+        } 
+        swap(a[i],a[index]);
+    }
+
+    cout<<"Sorted array is : ";
+    for(ll i=0;i<a.size();i++)
+        cout<<a[i]<<" "; 
+
+    cout<<"\n";
+    
+}
+
+
+int main(){
+    
+    ll a=11;
+
+    while(a){
+
+        start:
+
+        cout<<"\n\n";
+        cout<<"--------------------------------------* MENU *--------------------------------------\n\n";
+        cout<<"                 Press 1 followed by enter for Breadth First Search \n";
+        cout<<"                 Press 2 followed by enter for Binary Search \n";
+        cout<<"                 Press 3 followed by enter for Counting Sort \n";
+        cout<<"                 Press 4 followed by enter for Depth First Search\n";
+        cout<<"                 Press 5 followed by enter for Heap Sort\n";
+        cout<<"                 Press 6 followed by enter for Insertion Sort\n";
+        cout<<"                 Press 7 followed by enter for Longest Common Subsequence \n";
+        cout<<"                 Press 8 followed by enter for Mergesort \n";
+        cout<<"                 Press 9 followed by enter for Quick Sort \n";
+        cout<<"                 Press 10 followed by enter for Selection Sort \n";
+        cout<<"                 Press 0 followed by enter to exit \n\n";
+
+        cout<<"Enter Input please : ";
+
+        cin>>a;
+
+        switch(a){
+
+            case 0:{
+                goto end;
+            }
+            
+            case 1:{
+                bfs();
+                cout<<"\n\nPress 1 for menu or 0 for exit followed by enter : ";
+                cin>>a;
+                if(a==1)
+                    goto start;
+                else
+                    goto end;
+
+            }
+
+            case 2:{
+                bs();
+                cout<<"\n\nPress 1 for menu or 0 for exit followed by enter : ";
+                cin>>a;
+                if(a==1)
+                    goto start;
+                else
+                    goto end;
+            }
+
+            case 3:{
+                cs();
+                cout<<"\n\nPress 1 for menu or 0 for exit followed by enter : ";
+                cin>>a;
+                if(a==1)
+                    goto start;
+                else
+                    goto end;
+            }
+
+            case 4:{
+                dfs();
+                cout<<"\n\nPress 1 for menu or 0 for exit followed by enter : ";
+                cin>>a;
+                if(a==1)
+                    goto start;
+                else
+                    goto end;
+            }
+
+            case 5:{
+                hs();
+                cout<<"\n\nPress 1 for menu or 0 for exit followed by enter : ";
+                cin>>a;
+                if(a==1)
+                    goto start;
+                else
+                    goto end;
+            }
+
+            case 6:{
+                Is();
+                cout<<"\n\nPress 1 for menu or 0 for exit followed by enter : ";
+                cin>>a;
+                if(a==1)
+                    goto start;
+                else
+                    goto end;
+            }
+
+            case 7:{
+                lcs();
+                cout<<"\n\nPress 1 for menu or 0 for exit followed by enter : ";
+                cin>>a;
+                if(a==1)
+                    goto start;
+                else
+                    goto end;
+            }
+
+            case 8:{
+                ms();
+                cout<<"\n\nPress 1 for menu or 0 for exit followed by enter : ";
+                cin>>a;
+                if(a==1)
+                    goto start;
+                else
+                    goto end;
+            }
+
+            case 9:{
+                qs();
+                cout<<"\n\nPress 1 for menu or 0 for exit followed by enter : ";
+                cin>>a;
+                if(a==1)
+                    goto start;
+                else
+                    goto end;
+            }
+
+            case 10:{
+                ss();
+                cout<<"\n\nPress 1 for menu or 0 for exit followed by enter : ";
+                cin>>a;
+                if(a==1)
+                    goto start;
+                else
+                    goto end;
+            }
+
+            default:{
+                cout<<"Wrong Entry Please choose from menu given below\n\n";
+                goto start;
+            }
+        }
+
+        end:
+        cout<<"\nSuccessfully Exited\n";
+    }
+}
